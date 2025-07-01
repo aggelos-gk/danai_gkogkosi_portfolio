@@ -116,8 +116,9 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
             display: flex;
+            flex-wrap: wrap;
+            padding: 210px;
             align-items: center;
             background: linear-gradient(135deg, var(--white) 0%, var(--primary-light) 100%);
             position: relative;
@@ -271,8 +272,8 @@
         }
 
         .modal-image {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 85%;
+            max-height: 85%;
             object-fit: contain;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.7);
