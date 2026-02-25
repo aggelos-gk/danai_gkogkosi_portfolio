@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Danai Gkogkosi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     
@@ -14,7 +17,7 @@
     <header id="header">
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">Danai<span>Gkogkosi</span></a>
+                <a href="#" class="logo">Danai <span class="logo-script">Gkogkosi</span></a>
                 <ul class="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -36,21 +39,21 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Hi, I'm <span>Danai Gkogkosi</span></h1>
+                    <h1>Hi, I'm <span class="hero-name">Danai Gkogkosi</span></h1>
                     <p>International student-athlete from Greece and a Division I swimmer at UNC Asheville. Through swimming, I've gained discipline, resilience, and strong leadership skills. I'm also deeply passionate about content creation and journalism, and I love using storytelling as a way to connect and inspire.</p>
                     <div>
                         <a href="#portfolio" class="btn">View My Work</a>
                         <a href="#contact" class="btn btn-outline">Contact Me</a>
                     </div>
 		    <div class="social-icons">
-   			<a href="https://www.instagram.com/danaigkogkosi/" target="_blank"><i class="fab fa-instagram"></i></a>
-   			<a href="https://www.tiktok.com/@danai_gkogkosi" target="_blank"><i class="fab fa-tiktok"></i></a>
-   			<a href="https://www.linkedin.com/in/danai-gkogkosi-4b2ab2286/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+   			<a href="https://www.instagram.com/danaigkogkosi/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+   			<a href="https://www.tiktok.com/@danai_gkogkosi" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+   			<a href="https://www.linkedin.com/in/danai-gkogkosi-4b2ab2286/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
 		    </div>
                 </div>
                 <div class="hero-image">
                     <div class="hero-image-placeholder">
-                        <img src="images/danai_home_2.png" class="hero-portrait" class="prof-img">
+                        <img src="images/danai_home_2.png" class="hero-portrait prof-img">
                     </div>
                 </div>
             </div>
@@ -58,7 +61,7 @@
     </section>
 
     <!-- About Section -->
-    <section class="section_W" id="about">
+    <section class="section_w" id="about">
         <div class="container">
             <div class="section-title">
                 <h2>About Me</h2>
@@ -74,30 +77,14 @@
                     <p>I'm an international student-athlete from Greece, currently swimming at a Division I university in Asheville, North Carolina. I've been a swimmer for 17 years and proudly represented the Greek national team for six of those. Swimming has shaped who I am, teaching me discipline, resilience, teamwork, time management, and leadership. Ever since I was young, I dreamed of moving to the U.S. to study and compete as a Division I athlete—and I made that dream come true. Coming to the States pushed me out of my comfort zone and helped me grow both personally and professionally.</p>
                     <p>Outside of the pool, I'm passionate about content creation—since the days of Musical.ly, I've loved making funny videos and sharing them online, now mostly on TikTok. I'm also deeply interested in journalism; I love hearing people's stories, exploring different perspectives, and bringing them to life through writing.</p>
 
-			<span class="clickable-span" onclick="openImage('images/resume_image.png')">
-        View Resume
-    </span>
-
-    <div id="imageModal" class="image-modal" onclick="closeModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <img id="modalImage" class="modal-image" src="" alt="Maximized Image">
-        </div>
-    </div>
-
-    <a download="resume_danai_gkogkosi.pdf" 
-    href="pdf/resume_danai_gkogkosi.pdf"
-    target="_blank"
-    style="color: var(--primary-color); 
-            text-decoration: underline;
-            cursor: pointer;
-            font-weight: 500;
-            transition: var(--transition);
-            display: inline-block;
-            margin-bottom: 20px;"
-    onmouseover="this.style.color='var(--primary-dark)'"
-    onmouseout="this.style.color='var(--primary-color)'">
-    Download Resume
-    </a>
+                    <div class="resume-actions">
+                        <a class="resume-download-link"
+                        download="resume_danai_gkogkosi.pdf" 
+                        href="pdf/resume_danai_gkogkosi.pdf"
+                        target="_blank" rel="noopener noreferrer">
+                        Download Resume
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -135,7 +122,7 @@ Being part of the UNCA swim and dive team has taught me valuable skills beyond t
 
 
     <!-- Swimming Items -->
-    <div class="portfolio-item" data-category="swimming" onclick="window.open('https://uncabulldogs.com/sports/womens-swimming-and-diving/roster/danai-gkogkosi/4046', '_blank')" style="cursor: pointer;">
+    <div class="portfolio-item" data-category="swimming" onclick="window.open('https://uncabulldogs.com/sports/womens-swimming-and-diving/roster/danai-gkogkosi/4046', '_blank')">
         <div class="portfolio-img-placeholder">
             <img src="images/swimming1.png">
         </div>
@@ -147,7 +134,7 @@ Being part of the UNCA swim and dive team has taught me valuable skills beyond t
 
 
     </div>
-    <div class="portfolio-item" data-category="swimming" onclick="window.open('https://swimswam.com/unc-asheville-adds-greek-junior-national-team-member-danai-gkogkosi-for-fall-of-2023/', '_blank')" style="cursor: pointer;">
+    <div class="portfolio-item" data-category="swimming" onclick="window.open('https://swimswam.com/unc-asheville-adds-greek-junior-national-team-member-danai-gkogkosi-for-fall-of-2023/', '_blank')">
         <div class="portfolio-img-placeholder">
             <img src="images/swimming2.jpg">
         </div>
@@ -157,7 +144,7 @@ Being part of the UNCA swim and dive team has taught me valuable skills beyond t
         </div>
     </div>
 
-    <div class="portfolio-item" data-category="swimming" onclick="window.open('https://www.patris.gr/athlitika/danai-gkogkosi-kolymvitria-fainomeno/', '_blank')" style="cursor: pointer;">
+    <div class="portfolio-item" data-category="swimming" onclick="window.open('https://www.patris.gr/athlitika/danai-gkogkosi-kolymvitria-fainomeno/', '_blank')">
         <div class="portfolio-img-placeholder">
             <img src="images/swimming3.png">
         </div>
@@ -167,7 +154,7 @@ Being part of the UNCA swim and dive team has taught me valuable skills beyond t
         </div>
     </div>
 
-    <div class="portfolio-item" data-category="swimming" onclick="window.open('https://greencorner.gr/erasitexnis/itemlist/tag/%CE%B4%CE%B1%CE%BD%CE%B1%CE%B7%20%CE%B3%CE%BA%CE%BF%CE%B3%CE%BA%CE%BF%CF%83%CE%B7', '_blank')" style="cursor: pointer;">
+    <div class="portfolio-item" data-category="swimming" onclick="window.open('https://greencorner.gr/erasitexnis/itemlist/tag/%CE%B4%CE%B1%CE%BD%CE%B1%CE%B7%20%CE%B3%CE%BA%CE%BF%CE%B3%CE%BA%CE%BF%CF%83%CE%B7', '_blank')">
         <div class="portfolio-img-placeholder">
             <img src="images/swimming4.png">
         </div>
@@ -178,11 +165,9 @@ Being part of the UNCA swim and dive team has taught me valuable skills beyond t
     </div>
     
     <!-- Articles Items -->
-    <div class="portfolio-item" data-category="articles" onclick="window.open('https://thebluebanner.net/17292/news/young-people-in-the-united-states-and-europe-disengage-from-voting/', '_blank')" style="cursor: pointer;">
+    <div class="portfolio-item" data-category="articles" onclick="window.open('https://thebluebanner.net/17292/news/young-people-in-the-united-states-and-europe-disengage-from-voting/', '_blank')">
         <div class="portfolio-img-placeholder">
-            <div class="portfolio-img-placeholder">
-            	<img src="images/article1.png">
-            </div>
+            <img src="images/article1.png">
         </div>
         <div class="portfolio-overlay">
             <h3>Young people in the United States and Europe disengage from voting</h3>
@@ -190,7 +175,7 @@ Being part of the UNCA swim and dive team has taught me valuable skills beyond t
         </div>
     </div>
 
-    <div class="portfolio-item" data-category="articles" onclick="window.open('https://thebluebanner.net/17658/sports/student-athletes-struggle-to-keep-everything-under-control/#', '_blank')" style="cursor: pointer;">
+    <div class="portfolio-item" data-category="articles" onclick="window.open('https://thebluebanner.net/17658/sports/student-athletes-struggle-to-keep-everything-under-control/#', '_blank')">
         <div class="portfolio-img-placeholder">
             <img src="images/article2.png">
         </div>
@@ -201,7 +186,7 @@ Being part of the UNCA swim and dive team has taught me valuable skills beyond t
     </div>
     
     <!-- Videos/Reels Items -->
-    <div class="portfolio-item" data-category="video" onclick="window.open('https://www.youtube.com/watch?v=omuU6NSgMHI', '_blank')" style="cursor: pointer;">
+    <div class="portfolio-item" data-category="video" onclick="window.open('https://www.youtube.com/watch?v=omuU6NSgMHI', '_blank')">
         <div class="portfolio-img-placeholder">
             <img src="images/video1.png">
         </div>
@@ -212,7 +197,7 @@ I created this video during my internship with UNC Asheville Athletics to highli
         </div>
     </div>
 
-    <div class="portfolio-item" data-category="video" onclick="window.open('https://www.youtube.com/watch?v=6J0UQ95QG2s', '_blank')" style="cursor: pointer;">
+    <div class="portfolio-item" data-category="video" onclick="window.open('https://www.youtube.com/watch?v=6J0UQ95QG2s', '_blank')">
         <div class="portfolio-img-placeholder">
             <img src="images/video2.png">
         </div>
@@ -223,7 +208,7 @@ I created this video during my internship with UNC Asheville Athletics to highli
         </div>
     </div>
     
-    <div class="portfolio-item" data-category="video" onclick="window.open('https://icedrive.net/s/axQ964j2z5CVZzTXujPZDRiRtByC', '_blank')"  style="cursor: pointer;">
+    <div class="portfolio-item" data-category="video" onclick="window.open('https://icedrive.net/s/axQ964j2z5CVZzTXujPZDRiRtByC', '_blank')" >
         <div class="portfolio-img-placeholder">
             <img src="images/video3.png">
         </div>
@@ -234,7 +219,7 @@ I made this documentary for my Video Production class as a part of our non-ficti
         </div>
     </div>
 
-    <div class="portfolio-item" data-category="video" onclick="window.open('https://icedrive.net/s/bw3vigVBW3x2ZY13hb7btV1ayS6W', '_blank')"  style="cursor: pointer;">
+    <div class="portfolio-item" data-category="video" onclick="window.open('https://icedrive.net/s/bw3vigVBW3x2ZY13hb7btV1ayS6W', '_blank')" >
         <div class="portfolio-img-placeholder">
             <img src="images/video4.png">
         </div>
@@ -246,7 +231,7 @@ I completed this video during my Strategic Communication class for the Giving Tu
     </div>
 
     <!-- Graphics Items -->
-    <div class="portfolio-item" data-category="graphics" onclick="window.open('https://icedrive.net/s/RgTYTS25taTRF7VR4V5DWPhN229j', '_blank')"  style="cursor: pointer;">
+    <div class="portfolio-item" data-category="graphics" onclick="window.open('https://icedrive.net/s/RgTYTS25taTRF7VR4V5DWPhN229j', '_blank')" >
         <div class="portfolio-img-placeholder">
             <img src="images/top_ten_50_free_im.jpeg">
         </div>
@@ -256,7 +241,7 @@ I completed this video during my Strategic Communication class for the Giving Tu
         </div>
     </div>
 
-    <div class="portfolio-item" data-category="graphics" onclick="window.open('https://icedrive.net/s/4x3ZfAWwiN8Xt3Z86YjjjwyVAjku', '_blank')"  style="cursor: pointer;">
+    <div class="portfolio-item" data-category="graphics" onclick="window.open('https://icedrive.net/s/4x3ZfAWwiN8Xt3Z86YjjjwyVAjku', '_blank')" >
         <div class="portfolio-img-placeholder">
             <img src="images/top_ten_100_free_im.jpeg">
         </div>
@@ -266,7 +251,7 @@ I completed this video during my Strategic Communication class for the Giving Tu
         </div>
     </div>
 
-    <div class="portfolio-item" data-category="graphics" onclick="window.open('https://icedrive.net/s/44Avt7V98NF3GfWw2xY1Fxzw3QvN', '_blank')"  style="cursor: pointer;">
+    <div class="portfolio-item" data-category="graphics" onclick="window.open('https://icedrive.net/s/44Avt7V98NF3GfWw2xY1Fxzw3QvN', '_blank')" >
         <div class="portfolio-img-placeholder">
             <img src="images/top_ten_200_free_im.jpeg">
         </div>
@@ -284,7 +269,7 @@ I completed this video during my Strategic Communication class for the Giving Tu
     </section>
 
 <!-- Experience Section -->
-<section class="section_W" id="experience">
+<section class="section_w" id="experience">
     <div class="container">
         <div class="section-title">
             <h2>My Experience</h2>
@@ -297,7 +282,7 @@ I completed this video during my Strategic Communication class for the Giving Tu
                 <h3>Education</h3>
             </div>
             <div class="experience-item">
-                <div class="experience-image-placeholder" onclick="window.open('https://www.linkedin.com/school/unc-asheville/', '_blank')" style="cursor: pointer;">
+                <div class="experience-image-placeholder" onclick="window.open('https://www.linkedin.com/school/unc-asheville/', '_blank')">
                     <!-- Image will go here -->
                     <img src="images/university_asheville_logo.png" class="experience-img">
                 </div>
@@ -324,7 +309,7 @@ I completed this video during my Strategic Communication class for the Giving Tu
             </div>
 
             <div class="experience-item">
-                <div class="experience-image-placeholder" onclick="window.open('https://www.linkedin.com/company/athletics-at-university-of-north-carolina-asheville/', '_blank')" style="cursor: pointer;">
+                <div class="experience-image-placeholder" onclick="window.open('https://www.linkedin.com/company/athletics-at-university-of-north-carolina-asheville/', '_blank')">
                     <img src="images/university_asheville_logo.png" alt="Social Media Marketing" class="experience-img">
                 </div>
                 <div class="experience-content-wrapper">
@@ -342,7 +327,7 @@ I completed this video during my Strategic Communication class for the Giving Tu
             </div>
 
             <div class="experience-item">
-                <div class="experience-image-placeholder" onclick="window.open('https://www.linkedin.com/company/athletics-at-university-of-north-carolina-asheville/', '_blank')" style="cursor: pointer;">
+                <div class="experience-image-placeholder" onclick="window.open('https://www.linkedin.com/company/athletics-at-university-of-north-carolina-asheville/', '_blank')">
                     <img src="images/unca_bulldogs.png" class="experience-img">
                 </div>
                 <div class="experience-content-wrapper">
@@ -361,7 +346,7 @@ I completed this video during my Strategic Communication class for the Giving Tu
             </div>
 
 	    <div class="experience-item">
-                <div class="experience-image-placeholder" onclick="window.open('https://www.linkedin.com/company/athletics-at-university-of-north-carolina-asheville/', '_blank')" style="cursor: pointer;">
+                <div class="experience-image-placeholder" onclick="window.open('https://www.linkedin.com/company/athletics-at-university-of-north-carolina-asheville/', '_blank')">
                     <img src="images/unca_bulldogs.png" alt="Marketing Specialist" class="experience-img">
                 </div>
                 <div class="experience-content-wrapper">
@@ -379,7 +364,7 @@ I completed this video during my Strategic Communication class for the Giving Tu
             </div>
 
             <div class="experience-item">
-                <div class="experience-image-placeholder" onclick="window.open('https://www.linkedin.com/company/athletics-at-university-of-north-carolina-asheville/', '_blank')" style="cursor: pointer;">
+                <div class="experience-image-placeholder" onclick="window.open('https://www.linkedin.com/company/athletics-at-university-of-north-carolina-asheville/', '_blank')">
                     <img src="images/unca_bulldogs.png" alt="Marketing Specialist" class="experience-img">
                 </div>
                 <div class="experience-content-wrapper">
@@ -404,7 +389,7 @@ I completed this video during my Strategic Communication class for the Giving Tu
             </div>
 
             <div class="experience-item">
-                <div class="experience-image-placeholder" onclick="window.open('https://www.linkedin.com/school/unc-asheville/', '_blank')" style="cursor: pointer;">
+                <div class="experience-image-placeholder" onclick="window.open('https://www.linkedin.com/school/unc-asheville/', '_blank')">
                     <img src="images/university_asheville_logo.png"  class="experience-img">
                 </div>
                 <div class="experience-content-wrapper">
@@ -417,17 +402,13 @@ I completed this video during my Strategic Communication class for the Giving Tu
             </div>
 
             <div class="experience-item">
-                <div class="experience-image-placeholder" onclick="window.open('https://www.linkedin.com/school/unc-asheville/', '_blank')" style="cursor: pointer;">
+                <div class="experience-image-placeholder" onclick="window.open('https://www.linkedin.com/school/unc-asheville/', '_blank')">
                     <img src="images/university_asheville_logo.png"  class="experience-img">
                 </div>
                 <div class="experience-content-wrapper">
                     <div class="experience-date">Issued Jan 2024</div>
                     <div class="experience-content">
-                        <h4 onclick="window.open('https://apif.stukent.com/certifications/v1/cbf8a14d-a66c-4f26-bbc2-0fbe7981dfac/d0fefc37-4824-4f5a-b020-8637aca01b44', '_blank')" 
-   				 style="cursor: pointer; 
-           			 	color: black; 
-           				text-decoration: underline;
-          				transition: all 0.2s ease;">
+                        <h4 class="certificate-link" onclick="window.open('https://apif.stukent.com/certifications/v1/cbf8a14d-a66c-4f26-bbc2-0fbe7981dfac/d0fefc37-4824-4f5a-b020-8637aca01b44', '_blank', 'noopener,noreferrer')">
 				 Personal Branding Certificate
 			</h4>
                         <p class="experience-subtitle">University of North Carolina Asheville</p>
@@ -458,55 +439,43 @@ I completed this video during my Strategic Communication class for the Giving Tu
             <!-- Industry Knowledge -->
             <div class="skill-item" data-category="industry">
                 <div class="skill-name">Sports Videography</div>
-                <div class="skill-separator"></div>
             </div>
             <div class="skill-item" data-category="industry">
                 <div class="skill-name">Time Management</div>
-                <div class="skill-separator"></div>
             </div>
             <div class="skill-item" data-category="industry">
                 <div class="skill-name">Team Building</div>
-                <div class="skill-separator"></div>
             </div>
             <div class="skill-item" data-category="industry">
                 <div class="skill-name">Recruiting</div>
-                <div class="skill-separator"></div>
             </div>
             <div class="skill-item" data-category="industry">
                 <div class="skill-name">Leadership Development</div>
-                <div class="skill-separator"></div>
             </div>
             <div class="skill-item" data-category="industry">
                 <div class="skill-name">Social Media Content Creation</div>
-                <div class="skill-separator"></div>
             </div>
             <div class="skill-item" data-category="industry">
                 <div class="skill-name">Athlete Branding</div>
-                <div class="skill-separator"></div>
             </div>
             <div class="skill-item" data-category="industry">
                 <div class="skill-name">Content Creation</div>
-                <div class="skill-separator"></div>
             </div>
             
             <!-- Tools & Technologies -->
             <div class="skill-item" data-category="tools">
                 <div class="skill-name">Adobe Premiere Pro</div>
-                <div class="skill-separator"></div>
             </div>
             <div class="skill-item" data-category="tools">
                 <div class="skill-name">iMovie</div>
-                <div class="skill-separator"></div>
             </div>
             
             <!-- Languages -->
             <div class="skill-item" data-category="languages">
                 <div class="skill-name">English (Fluent)</div>
-                <div class="skill-separator"></div>
             </div>
             <div class="skill-item" data-category="languages">
                 <div class="skill-name">Greek (Native)</div>
-                <div class="skill-separator"></div>
             </div>
             
         </div>
@@ -521,26 +490,23 @@ I completed this video during my Strategic Communication class for the Giving Tu
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                   
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
+                    <div class="contact-inline">
+                        <div class="contact-brief">
+                            <i class="fas fa-map-marker-alt"></i>
                             <span>Asheville, NC</span>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <span>danaegogosi@gmail.com</span>
+                        <div class="contact-brief">
+                            <i class="fas fa-envelope"></i>
+                            <a class="contact-mail-link" href="mailto:danaegogosi@gmail.com">danaegogosi@gmail.com</a>
                         </div>
-
-                    </div>
-                    <div class="social-icons">
-			<a href="https://www.instagram.com/danaigkogkosi/" target="_blank"><i class="fab fa-instagram"></i></a>
-   			<a href="https://www.tiktok.com/@danai_gkogkosi" target="_blank"><i class="fab fa-tiktok"></i></a>
-   			<a href="https://www.linkedin.com/in/danai-gkogkosi-4b2ab2286/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <div class="contact-brief contact-social-inline">
+                            <i class="fas fa-share-alt"></i>
+                            <div class="social-icons">
+                                <a href="https://www.instagram.com/danaigkogkosi/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@danai_gkogkosi" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                                <a href="https://www.linkedin.com/in/danai-gkogkosi-4b2ab2286/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="contact-form">
@@ -576,9 +542,9 @@ I completed this video during my Strategic Communication class for the Giving Tu
                 <h3>Danai Gkogkosi</h3>
                 <p>International student-athlete from Greece and a Division I swimmer at UNC Asheville. Through swimming, I've gained discipline, resilience, and strong leadership skills.</p>
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/danaigkogkosi/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@danai_gkogkosi" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.linkedin.com/in/danai-gkogkosi-4b2ab2286/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/danaigkogkosi/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@danai_gkogkosi" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/in/danai-gkogkosi-4b2ab2286/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             
