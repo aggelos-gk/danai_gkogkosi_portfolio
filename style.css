@@ -307,12 +307,12 @@ header.scrolled .navbar {
 
 .hero-image {
     position: absolute;
-    left: 30%;
-    top: 20%;
-    bottom: auto;
+    left: 50%;
+    top: auto;
+    bottom: 0;
     z-index: 3;
     width: min(clamp(340px, 40vw, 620px), 74vh);
-    transform: none;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1374,7 +1374,7 @@ footer .social-icons a:hover {
         top: 51%;
         width: max-content;
         font-size: clamp(6rem, 22vw, 13rem);
-        transform: translate(-50%, -50%) rotate(-4deg) scaleX(0.62);
+        transform: translate(-50%, -50%) rotate(-4deg) scaleX(0.78);
     }
 
     .hero-image {
@@ -1411,7 +1411,7 @@ footer .social-icons a:hover {
         top: 50%;
         width: max-content;
         font-size: clamp(5.5rem, 31vw, 8rem);
-        transform: translate(-50%, -50%) rotate(-4deg) scaleX(0.42);
+        transform: translate(-50%, -50%) rotate(-4deg) scaleX(0.55);
     }
 
     .hero-image {
@@ -1451,6 +1451,7 @@ footer .social-icons a:hover {
     }
 
     .about-image {
+        order: 2;
         width: min(440px, 100%);
         margin: 0 auto;
     }
