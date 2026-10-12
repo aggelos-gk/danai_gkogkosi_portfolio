@@ -60,7 +60,7 @@
             return;
         }
 
-        const scrollPosition = window.scrollY + 140;
+        const scrollPosition = window.scrollY + 88;
         let currentSectionId = trackedSections[0].id;
 
         trackedSections.forEach((section) => {
@@ -68,6 +68,11 @@
                 currentSectionId = section.id;
             }
         });
+
+        // The footer is too short to reach the top of the screen, so mark the last link at the page bottom
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+            currentSectionId = trackedSections[trackedSections.length - 1].id;
+        }
 
         navItems.forEach((item) => {
             item.classList.toggle("active", item.getAttribute("href") === `#${currentSectionId}`);
@@ -143,7 +148,7 @@
 
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                smoothScrollTo(targetElement.offsetTop - 78, 820);
+                smoothScrollTo(targetElement.offsetTop - 70, 820);
             }
         });
     });
@@ -180,7 +185,7 @@
         });
     };
 
-    const filterPortfolio = (category) => {
+    const filterPortfolio = (category, animate = true) => {
         const visibleItems = [];
 
         portfolioItems.forEach((item) => {
@@ -196,7 +201,9 @@
             }
         });
 
-        animatePortfolioEntry(visibleItems);
+        if (animate) {
+            animatePortfolioEntry(visibleItems);
+        }
 
         descriptionTexts.forEach((text) => {
             const matches = text.getAttribute("data-for-category") === category;
@@ -215,73 +222,7 @@
 
         const defaultButton = document.querySelector("#portfolio .filter-btn.active") || portfolioFilterButtons[0];
         if (defaultButton) {
-            filterPortfolio(defaultButton.getAttribute("data-filter") || "swimming");
+            filterPortfolio(defaultButton.getAttribute("data-filter") || "videos", false);
         }
-    }
-
-    const contactForm = document.getElementById("contactForm");
-    if (contactForm) {
-        contactForm.addEventListener("submit", async function (event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-
-            try {
-                const response = await fetch(this.action, {
-                    method: "POST",
-                    body: formData,
-                    headers: { Accept: "application/json" }
-                });
-
-                if (response.ok) {
-                    alert("Thank you for contacting me! I'll get back to you soon.");
-                    this.reset();
-                    return;
-                }
-
-                const error = await response.json();
-                alert(`Error: ${error.error || "Something went wrong."}`);
-            } catch (error) {
-                alert("Network error - check console");
-                console.error(error);
-            }
-        });
-    }
-
-    const revealSelectors = [
-        ".section-title",
-        ".hero-text",
-        ".hero-image",
-        ".about-image",
-        ".about-text",
-        ".portfolio-item",
-        ".experience-box",
-        ".skill-item",
-        ".contact-info",
-        ".contact-form",
-        ".footer-col"
-    ];
-
-    const revealElements = document.querySelectorAll(revealSelectors.join(","));
-    revealElements.forEach((element, index) => {
-        element.classList.add("reveal");
-        element.style.setProperty("--reveal-delay", `${Math.min(index * 18, 90)}ms`);
-    });
-
-    if ("IntersectionObserver" in window) {
-        const revealObserver = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("in-view");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.1, rootMargin: "0px 0px -5% 0px" }
-        );
-
-        revealElements.forEach((element) => revealObserver.observe(element));
-    } else {
-        revealElements.forEach((element) => element.classList.add("in-view"));
     }
 })();
