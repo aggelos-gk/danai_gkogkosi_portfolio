@@ -166,7 +166,7 @@ header.scrolled {
 
 header.scrolled .navbar {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
     background: transparent;
     border-color: transparent;
     box-shadow: none;
@@ -1245,16 +1245,15 @@ footer .social-icons a:hover {
 
     .nav-links {
         position: fixed;
-        top: 74px;
+        top: 66px;
         left: 0;
         width: 100%;
-        height: calc(100vh - 74px);
+        height: calc(100svh - 66px);
         padding: 32px 24px;
         flex-direction: column;
         justify-content: flex-start;
         gap: 20px;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(8px);
+        background: #ffffff;
         border-top: 0;
         transform: translateX(-104%);
         opacity: 0;
@@ -1438,6 +1437,99 @@ footer .social-icons a:hover {
         height: 32px;
         border-radius: 5px;
         font-size: 0.86rem;
+    }
+}
+
+/* Tablet & mobile layout */
+@media (max-width: 1030px) {
+    .hero-image {
+        left: 50%;
+        top: auto;
+        bottom: 0;
+        width: min(560px, 52vw, 60svh);
+        transform: translateX(-50%);
+    }
+
+    .about-image {
+        width: min(440px, 100%);
+        margin: 0 auto;
+    }
+
+    .about-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .resume-actions {
+        justify-content: center;
+    }
+
+    .footer-content > .footer-col:first-child {
+        grid-column: 1 / -1;
+    }
+
+    footer .social-icons {
+        justify-content: flex-start;
+    }
+}
+
+/* Portrait tablets and phones: stack title, name and icons above a centered photo */
+@media (max-width: 1030px) and (orientation: portrait), (max-width: 600px) {
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: clamp(64px, 9svh, 96px);
+    }
+
+    .hero-title {
+        order: 1;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+    }
+
+    .hero-signature {
+        order: 2;
+        position: static;
+        margin-top: clamp(18px, 3svh, 30px);
+        font-size: clamp(1.1rem, 3.4vw, 1.6rem);
+    }
+
+    .hero-social-icons {
+        order: 3;
+        position: static;
+        margin-top: 14px;
+        justify-content: center;
+    }
+
+    .hero-image {
+        order: 4;
+        position: relative;
+        left: auto;
+        bottom: auto;
+        transform: none;
+        margin-top: auto;
+        width: min(92vw, 560px, calc((100svh - 280px) * 0.8));
+    }
+
+    .hero-script-name {
+        top: 62%;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-script-name {
+        top: 46%;
+    }
+
+    .footer-content > .footer-col:first-child {
+        grid-column: auto;
+    }
+
+    footer {
+        padding-bottom: 84px;
     }
 }
 
