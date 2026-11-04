@@ -225,4 +225,98 @@
             filterPortfolio(defaultButton.getAttribute("data-filter") || "videos", false);
         }
     }
+
+    // To add a reel, add a line here. "image" is optional, e.g. image: "images/reels/reel1.jpg"
+    const reels = [
+        { link: "https://www.instagram.com/reel/DdwekKQAt3A/", image: "" },
+        { link: "https://www.instagram.com/reel/DPEe3fLAL6I/", image: "" },
+        { link: "https://www.instagram.com/reel/DQzG7vZgI6n/", image: "" },
+        { link: "https://www.instagram.com/reel/Dewyf34xWKb/", image: "" },
+        { link: "https://www.instagram.com/reel/DWQ_5x3ETLX/", image: "" },
+        { link: "https://www.instagram.com/reel/DQHugOBj1ew/", image: "" },
+        { link: "https://www.instagram.com/reel/DKfqmWHRcYh/", image: "" },
+        { link: "https://www.instagram.com/reel/DGCPVw4R8tE/", image: "" },
+    ];
+
+    const reelSlots = document.querySelectorAll(".reel-slot");
+    const reelArrows = document.querySelectorAll(".reels-arrow");
+    const REEL_ANIM_MS = 260;
+    const REEL_STAGGER_MS = 45;
+    let reelStart = 0;
+    let reelsAnimating = false;
+
+    const renderReelSlot = (slot, index) => {
+        slot.innerHTML = "";
+        if (index >= reels.length) {
+            return;
+        }
+
+        const reel = reels[(reelStart + index) % reels.length];
+        const card = document.createElement("a");
+        card.className = "reel-card";
+        card.href = reel.link;
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+        card.setAttribute("aria-label", "Watch reel on Instagram");
+
+        if (reel.image) {
+            const img = document.createElement("img");
+            img.src = reel.image;
+            img.alt = "";
+            card.appendChild(img);
+        }
+
+        const icon = document.createElement("i");
+        icon.className = "fas fa-play";
+        card.appendChild(icon);
+        slot.appendChild(card);
+    };
+
+    const moveReels = (direction) => {
+        if (reelsAnimating) {
+            return;
+        }
+
+        reelStart = (reelStart + direction + reels.length) % reels.length;
+
+        if (prefersReducedMotion) {
+            reelSlots.forEach(renderReelSlot);
+            return;
+        }
+
+        reelsAnimating = true;
+        const outClass = direction > 0 ? "reel-out-left" : "reel-out-right";
+        const inClass = direction > 0 ? "reel-in-right" : "reel-in-left";
+
+        // Slots leave one after another in the direction of movement, then the new reels slide in
+        reelSlots.forEach((slot, index) => {
+            const order = direction > 0 ? index : reelSlots.length - 1 - index;
+
+            setTimeout(() => {
+                slot.classList.add(outClass);
+
+                setTimeout(() => {
+                    slot.classList.remove(outClass);
+                    renderReelSlot(slot, index);
+                    slot.classList.add(inClass);
+                    setTimeout(() => slot.classList.remove(inClass), REEL_ANIM_MS);
+                }, REEL_ANIM_MS);
+            }, order * REEL_STAGGER_MS);
+        });
+
+        setTimeout(() => {
+            reelsAnimating = false;
+        }, (reelSlots.length - 1) * REEL_STAGGER_MS + REEL_ANIM_MS * 2);
+    };
+
+    if (reelSlots.length > 0) {
+        reelSlots.forEach(renderReelSlot);
+
+        reelArrows.forEach((arrow) => {
+            arrow.hidden = reels.length <= reelSlots.length;
+            arrow.addEventListener("click", () => {
+                moveReels(arrow.classList.contains("reels-next") ? 1 : -1);
+            });
+        });
+    }
 })();
