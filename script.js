@@ -274,14 +274,14 @@
 
     // To add a reel, add a line here. "image" is optional, e.g. image: "images/reels/reel1.jpg"
     const reels = [
-        { link: "https://www.instagram.com/reel/DdwekKQAt3A/", image: "" },
-        { link: "https://www.instagram.com/reel/DPEe3fLAL6I/", image: "" },
-        { link: "https://www.instagram.com/reel/DQzG7vZgI6n/", image: "" },
-        { link: "https://www.instagram.com/reel/Dewyf34xWKb/", image: "" },
-        { link: "https://www.instagram.com/reel/DWQ_5x3ETLX/", image: "" },
-        { link: "https://www.instagram.com/reel/DQHugOBj1ew/", image: "" },
-        { link: "https://www.instagram.com/reel/DKfqmWHRcYh/", image: "" },
-        { link: "https://www.instagram.com/reel/DGCPVw4R8tE/", image: "" },
+        { link: "https://www.instagram.com/reel/DdwekKQAt3A/", image: "images/IMG_5676.PNG" },
+        { link: "https://www.instagram.com/reel/DPEe3fLAL6I/", image: "images/IMG_5677.PNG" },
+        { link: "https://www.instagram.com/reel/DQzG7vZgI6n/", image: "images/IMG_5678.PNG" },
+        { link: "https://www.instagram.com/reel/Dewyf34xWKb/", image: "images/IMG_5679.PNG" },
+        { link: "https://www.instagram.com/reel/DWQ_5x3ETLX/", image: "images/IMG_5680.PNG" },
+        { link: "https://www.instagram.com/reel/DQHugOBj1ew/", image: "images/IMG_5681.PNG" },
+        { link: "https://www.instagram.com/reel/DKfqmWHRcYh/", image: "images/IMG_5682.PNG" },
+        { link: "https://www.instagram.com/reel/DGCPVw4R8tE/", image: "images/IMG_5683.PNG" },
     ];
 
     const reelSlots = document.querySelectorAll(".reel-slot");
