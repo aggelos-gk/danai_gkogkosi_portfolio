@@ -847,7 +847,8 @@ header.scrolled .navbar {
     display: none;
 }
 
-.reels-arrow:hover {
+.reels-arrow:hover,
+.portfolio-arrow:hover {
     background: #A51C30;
     border-color: #A51C30;
     color: #ffffff;
@@ -858,9 +859,50 @@ header.scrolled .navbar {
     transform: translate(-50%, -50%) scale(0.92);
 }
 
-.reels-arrow:focus-visible {
+.reels-arrow:focus-visible,
+.portfolio-arrow:focus-visible {
     outline: 2px solid #A51C30;
     outline-offset: 3px;
+}
+
+/* Prev/next under the grid for categories with more items than fit on one page */
+.portfolio-pager {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.portfolio-pager[hidden] {
+    display: none;
+}
+
+.portfolio-page-count {
+    min-width: 48px;
+    text-align: center;
+    color: #555555;
+    font-size: 0.9rem;
+}
+
+.portfolio-arrow {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2e2e2;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #555555;
+    font-size: 1rem;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.portfolio-arrow:active {
+    transform: scale(0.92);
 }
 
 .video_h3 {

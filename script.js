@@ -173,6 +173,12 @@
     const portfolioFilterButtons = document.querySelectorAll("#portfolio .filter-btn");
     const portfolioItems = document.querySelectorAll(".portfolio-item");
     const descriptionTexts = document.querySelectorAll(".description-text");
+    const portfolioPager = document.querySelector(".portfolio-pager");
+    const portfolioPageCount = document.querySelector(".portfolio-page-count");
+    const portfolioArrows = document.querySelectorAll(".portfolio-arrow");
+    const mobilePortfolio = window.matchMedia("(max-width: 600px)");
+    let portfolioCategory = null;
+    let portfolioPage = 0;
 
     const animatePortfolioEntry = (visibleItems) => {
         requestAnimationFrame(() => {
@@ -185,15 +191,24 @@
         });
     };
 
-    const filterPortfolio = (category, animate = true) => {
-        const visibleItems = [];
+    // Six items per page on desktop, one on mobile; the arrows only show when there is more than one page
+    const getPortfolioPageSize = () => (mobilePortfolio.matches ? 1 : 6);
+
+    const getPortfolioPageCount = () => {
+        const total = Array.from(portfolioItems).filter((item) => item.getAttribute("data-category") === portfolioCategory).length;
+        return Math.max(1, Math.ceil(total / getPortfolioPageSize()));
+    };
+
+    const renderPortfolio = (animate) => {
+        const pageSize = getPortfolioPageSize();
+        const pageCount = getPortfolioPageCount();
+        const categoryItems = Array.from(portfolioItems).filter((item) => item.getAttribute("data-category") === portfolioCategory);
+        portfolioPage = Math.min(portfolioPage, pageCount - 1);
+        const visibleItems = categoryItems.slice(portfolioPage * pageSize, (portfolioPage + 1) * pageSize);
 
         portfolioItems.forEach((item) => {
-            const matches = item.getAttribute("data-category") === category;
-
-            if (matches) {
+            if (visibleItems.includes(item)) {
                 item.style.display = "block";
-                visibleItems.push(item);
             } else {
                 item.style.display = "none";
                 item.classList.remove("portfolio-enter");
@@ -205,11 +220,42 @@
             animatePortfolioEntry(visibleItems);
         }
 
+        if (portfolioPager) {
+            portfolioPager.hidden = pageCount <= 1;
+            portfolioPageCount.textContent = `${portfolioPage + 1} / ${pageCount}`;
+        }
+    };
+
+    const filterPortfolio = (category, animate = true) => {
+        portfolioCategory = category;
+        portfolioPage = 0;
+        renderPortfolio(animate);
+
         descriptionTexts.forEach((text) => {
             const matches = text.getAttribute("data-for-category") === category;
             text.classList.toggle("active", matches);
         });
     };
+
+    portfolioArrows.forEach((arrow) => {
+        arrow.addEventListener("click", () => {
+            const pageCount = getPortfolioPageCount();
+            const direction = arrow.classList.contains("portfolio-next") ? 1 : -1;
+            portfolioPage = (portfolioPage + direction + pageCount) % pageCount;
+            renderPortfolio(true);
+        });
+    });
+
+    mobilePortfolio.addEventListener("change", () => {
+        if (!portfolioCategory) {
+            return;
+        }
+
+        // Keep the first item that was on screen visible after the page size changes
+        const firstIndex = portfolioPage * (mobilePortfolio.matches ? 6 : 1);
+        portfolioPage = Math.floor(firstIndex / getPortfolioPageSize());
+        renderPortfolio(false);
+    });
 
     if (portfolioFilterButtons.length > 0) {
         portfolioFilterButtons.forEach((button) => {
